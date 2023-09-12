@@ -1,0 +1,19 @@
+{
+  "name": "simtext",
+  "version": "0.1.2",
+  "description": "A lightweight, rule-based text similarity calculator that selects the most appropriate comparison algorithm based on input string lengths.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "node test.js",
+    "build": "tsc -p ."
+  },
+  "keywords": [
+    "text similarity",
+    "text comparison"
+  ],
+  "author": "Ananda Rizki",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
