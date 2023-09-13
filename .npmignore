@@ -2,9 +2,8 @@
 .gitignore
 .gitattributes
 node_modules/
-dist/
+src/
 *.log
 package-lock.json
 tsconfig.json
-test.json
-index.ts
+test.js

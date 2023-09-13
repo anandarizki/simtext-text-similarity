@@ -1,6 +1,6 @@
 {
   "name": "simtext",
-  "version": "0.1.2",
+  "version": "0.1.6",
   "description": "A lightweight, rule-based text similarity calculator that selects the most appropriate comparison algorithm based on input string lengths.",
   "main": "dist/index.js",
   "scripts": {
@@ -9,10 +9,15 @@
   },
   "keywords": [
     "text similarity",
-    "text comparison"
+    "text comparison",
+    "levenshtein",
+    "jaccard",
+    "n-gram",
+    "nlp"
   ],
+  "homepage": "https://github.com/anandarizki/simtext-text-similarity",
   "author": "Ananda Rizki",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "typescript": "^5.2.2"
   }
