@@ -31,10 +31,13 @@ function levenshtein(a: string, b: string): number {
 export function levenshteinSimilarity(a: string, b: string): number {
   const distance = levenshtein(a, b);
   const maxLength = Math.max(a.length, b.length);
-  return (maxLength - distance) / maxLength; // Similarity score between 0 and 1.
+  return (maxLength - distance) / maxLength;
 }
 
-export function jaccardSimilarity(str1: string, str2: string): number {
+function jaccardSimilarity(str1: string, str2: string): number {
+  if (!str1 || !str2) {
+    throw new Error("String is empty");
+  }
   const set1 = new Set(str1.split(" "));
   const set2 = new Set(str2.split(" "));
   const intersection = new Set([...set1].filter((word) => set2.has(word)));
@@ -42,6 +45,10 @@ export function jaccardSimilarity(str1: string, str2: string): number {
 }
 
 export function ngramSimilarity(str1: string, str2: string, n = 2): number {
+  if (!n) {
+    throw new Error("Invalid arguments");
+  }
+
   const getNgrams = (text: string, n: number): Set<string> => {
     const ngrams: string[] = [];
     for (let i = 0; i <= text.length - n; i++) {
@@ -50,6 +57,7 @@ export function ngramSimilarity(str1: string, str2: string, n = 2): number {
     return new Set(ngrams);
   };
 
+
   const set1 = getNgrams(str1, n);
   const set2 = getNgrams(str2, n);
   const intersection = new Set([...set1].filter((gram) => set2.has(gram)));
@@ -57,12 +65,7 @@ export function ngramSimilarity(str1: string, str2: string, n = 2): number {
 }
 
 export function compareText(str1: string, str2: string): number {
-  // Validate that both inputs are of type string
-  if (typeof str1 !== "string" || typeof str2 !== "string") {
-    throw new Error("Both inputs must be of type string.");
-  }
 
-  // Validate that neither of the strings is empty
   if (str1.trim().length === 0 || str2.trim().length === 0) {
     throw new Error("Neither input can be empty.");
   }
