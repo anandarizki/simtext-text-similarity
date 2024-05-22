@@ -1,6 +1,6 @@
 {
   "name": "simtext",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A lightweight, rule-based text similarity calculator that selects the most appropriate comparison algorithm based on input string lengths.",
   "main": "dist/index.js",
   "scripts": {

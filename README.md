@@ -81,13 +81,15 @@ const score = ngramSimilarity("Roses are red, violets are blue", "Roses are red 
 console.log(score);  // 0.4166666666666667
 ```
 
-### 4. **compareText(str1: string, str2: string): number**
+### 4. **compareText(str1: string, str2: string, options?: {n: number}): number**
 
 A comprehensive function that determines the most appropriate similarity method based on the nature of the input strings.
 
 -   **Parameters**:
     -   `str1`: First string.
     -   `str2`: Second string.
+    -   `options` : (Optional) 
+        - `n` Number of characters for the n-gram. Default is 2.
 -   **Return**: Similarity score between 0 and 1, using the method deemed best for the input strings.
 
 

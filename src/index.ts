@@ -57,15 +57,17 @@ export function ngramSimilarity(str1: string, str2: string, n = 2): number {
     return new Set(ngrams);
   };
 
-
   const set1 = getNgrams(str1, n);
   const set2 = getNgrams(str2, n);
   const intersection = new Set([...set1].filter((gram) => set2.has(gram)));
   return intersection.size / (set1.size + set2.size - intersection.size);
 }
 
-export function compareText(str1: string, str2: string): number {
-
+export function compareText(
+  str1: string,
+  str2: string,
+  options?: { n: number }
+): number {
   if (str1.trim().length === 0 || str2.trim().length === 0) {
     throw new Error("Neither input can be empty.");
   }
@@ -82,7 +84,7 @@ export function compareText(str1: string, str2: string): number {
     if (charCount > 200) {
       return jaccardSimilarity(str1, str2);
     } else {
-      return ngramSimilarity(str1, str2, 3);
+      return ngramSimilarity(str1, str2, options?.n);
     }
   }
 }
